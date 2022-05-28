@@ -32,10 +32,10 @@ public class Ciudad {
     
      @Override
     public String toString() {
-        String cadena = String.format("Cuidad\n"
+        String ciudad = String.format("Cuidad\n"
                 + "Nombre Ciudad: %s "
                 + "Nombre Provincia: %s\n",
                 nombreCiudad, nombreProvincia);
-        return cadena;
+        return ciudad;
     }   
 }

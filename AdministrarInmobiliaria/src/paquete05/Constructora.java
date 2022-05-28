@@ -33,4 +33,13 @@ public class Constructora {
     public String obtenerIdEmpresa(){
         return idEmpresa;
     }
+    
+    @Override
+    public String toString() {
+        String constructora = String.format("Constructora\n"
+                + "Nombre Constructora: %s "
+                + "Id Empresa: %s\n",
+                nombreConstructora, idEmpresa);
+        return constructora;
+    }   
 }
