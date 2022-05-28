@@ -12,9 +12,8 @@ package paquete05;
 public class Constructora {
     private String nombreConstructora;
     private String idEmpresa;
-    private Constructora constructura;
     
-    public void Constructora(String n,String m){
+    public Constructora(String n,String m){
         nombreConstructora = n;
         idEmpresa = m;
     }
