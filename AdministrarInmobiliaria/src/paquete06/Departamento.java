@@ -54,7 +54,7 @@ public class Departamento {
         nombreEdificio = n;
     }
     
-    public void establecerUbicacionEdificios(String n){
+    public void establecerUbicacionEdificio(String n){
         ubicacionEdificio = n;
     }
     
@@ -78,5 +78,55 @@ public class Departamento {
         return alicuotaMensual;
     }
     
+    public double obtenerValorFinal(){
+        return valorFinal;
+    }
+    
+    public Barrio obtenerBarrio(){
+        return barrio;
+    }
+    
+    public Ciudad obtenerCiudad(){
+        return ciudad;
+    }
+    
+    public String obtenerNombreEdificio(){
+        return nombreEdificio;
+    }
+    
+    public String obtenerUbicacionEdificio(){
+        return ubicacionEdificio;
+    }
+    
+    public Constructora obtenerConstructora(){
+        return constructora;
+    }
+    
+    @Override
+    public String toString() {
+        String cadena = String.format("Informacion del Departamento\n"
+                + "Propietario\n"
+                + "Nombres: %s Apellidos: %s\n"
+                + "Identificacion: %s\n"
+                + "Nombre Edificio: %s Ubicación Edificio: %s\n"
+                + "Precio por metro cuadrado: %.2f"
+                + "Numero de metros cuadrados: %d\n"
+                + "Valor Alícuota Mensual: %.2f Costo final: %.2f\n"
+                + "Barrio\n"
+                + "Nombre Barrio: %s Referencia%s\n"
+                + "Ciudad\n"
+                + "Nombre Ciudad: %s Nombre Provincia: %s\n"
+                + "Constructora\n"
+                + "Nombre Constructora: %s ID Empresa: %s",
+                propietario.obtenerNombres(), propietario.obtenerApellidos(),
+                propietario.obtenerIdentificacion(),nombreEdificio,
+                ubicacionEdificio,precioMetroCuadrados,numeroMetrosCuadrados,
+                alicuotaMensual, valorFinal,barrio.obtenerNombreBarrio(),
+                barrio.obtenerReferencia(),ciudad.obtenerNombreCuidad(),
+                ciudad.obtenerNombreProvincia(),
+                constructora.obtenerNombreConstructora(),
+                constructora.obtenerIdEmpresa());
+        return cadena;            
+    }        
     
 }
