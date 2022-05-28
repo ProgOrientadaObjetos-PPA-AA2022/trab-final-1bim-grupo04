@@ -6,16 +6,16 @@
 package paquete04;
 
 public class Ciudad {
-    private String nombreCuidad;
+    private String nombreCiudad;
     private String nombreProvincia;
     
     public Ciudad (String n,String c){
-        nombreCuidad = n;
+        nombreCiudad = n;
         nombreProvincia = c;
     }
     
     public void establecerNombreCuidad(String n){
-        nombreCuidad = n;        
+        nombreCiudad = n;        
     }
     
     public void establecerNombreProvincia(String c){
@@ -23,13 +23,19 @@ public class Ciudad {
     }
     
     public String obtenerNombreCuidad(){
-        return nombreCuidad;
+        return nombreCiudad;
     }
     
     public String obtenerNombreProvincia(){
         return nombreProvincia;
     }
     
-    
-    
+     @Override
+    public String toString() {
+        String cadena = String.format("Cuidad\n"
+                + "Nombre Ciudad: %s "
+                + "Nombre Provincia: %s\n",
+                nombreCiudad, nombreProvincia);
+        return cadena;
+    }   
 }
