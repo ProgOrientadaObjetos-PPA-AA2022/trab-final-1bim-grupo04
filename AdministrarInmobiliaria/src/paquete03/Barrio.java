@@ -30,4 +30,8 @@ public class Barrio {
     public String obtenerReferencia(){
         return referencia;
     }
+    public String toString(){
+        String cadena = String.format("Nombre barrio: %s Referencia: %s\n",nombreBarrio,referencia);
+        return cadena;
+    }
 }
