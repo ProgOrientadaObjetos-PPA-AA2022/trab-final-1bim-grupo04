@@ -8,9 +8,8 @@ package paquete04;
 public class Ciudad {
     private String nombreCuidad;
     private String nombreProvincia;
-    private Ciudad ciudad;
     
-    public void Ciudad (String n,String c){
+    public Ciudad (String n,String c){
         nombreCuidad = n;
         nombreProvincia = c;
     }

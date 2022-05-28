@@ -103,6 +103,7 @@ public class Casa {
                 ,propietario.obtenerNombres(),propietario.obtenerApellidos(),propietario.obtenerIdentificacion(),
                 precioMetroCuadrado,numeroCuartos,numeroMetrosCuadrados,costoFinal,
                 barrio.obtenerNombreBarrio(),barrio.obtenerReferencia(),
+                ciudad.obtenerNombreCuidad(),ciudad.obtenerNombreProvincia(),
                 constructora.obtenerNombreConstructora(),constructora.obtenerIdEmpresa());
         return cadena;
     }
