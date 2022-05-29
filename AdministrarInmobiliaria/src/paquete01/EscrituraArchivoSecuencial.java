@@ -15,37 +15,22 @@ import paquete06.Casa;
 public final class EscrituraArchivoSecuencial {
     private String nombreArchivo;
     private ObjectOutputStream salida; // envía los datos a un archivo
-    private Departamento registro;
+    private Departamento registroDepartamento;
+    private Casa registroCasa;
+    private Propietario registroPropietario;
+    private Barrio registroBarrio;
+    private Ciudad registroCiudad;
+    private Constructora registroConstructora;
     private ArrayList<Departamento> listaDepartamentos;
     private ArrayList<Casa> listaCasas;
     private ArrayList<Propietario> listaPropietarios;
     private ArrayList<Barrio> listaBarrios;
     private ArrayList<Ciudad> listaCiudades;
     private ArrayList<Constructora> listaConstructoras;
-
-    public EscrituraArchivoSecuencial(String nombreArc) {
+    
+    public  EscrituraArchivoSecuencial(String nombreArc) {
         nombreArchivo = nombreArc;
-        establecerListaDepartamentos(); // obtener los valores (objetos)
-                                    // que tiene el archivo.
-        // System.out.println(obtenerListaProfesores().size());
-        try // abre el archivo
-        {
-            salida = new ObjectOutputStream(
-                    new FileOutputStream(nombreArchivo));
-            // proceso para ingresar nuevamente los valores del archivo
-            if (obtenerListaDepartamentos().size() > 0) {
-                for (int i = 0; i < obtenerListaDepartamentos().size(); i++) {
-                    establecerRegistro(obtenerListaDepartamentos().get(i));
-                    establecerSalida();
-                }            
-            }
-        } // fin de try
-        catch (IOException ioException) {
-            System.err.println("Error al abrir el archivo.");
-        } // fin de catch
-        establecerListaCasas(); // obtener los valores (objetos)
-                                    // que tiene el archivo.
-        // System.out.println(obtenerListaProfesores().size());
+        establecerListaCasas();
         try // abre el archivo
         {
             salida = new ObjectOutputStream(
@@ -53,27 +38,170 @@ public final class EscrituraArchivoSecuencial {
             // proceso para ingresar nuevamente los valores del archivo
             if (obtenerListaCasas().size() > 0) {
                 for (int i = 0; i < obtenerListaCasas().size(); i++) {
-                    establecerRegistro(obtenerListaCasas().get(i));
-                    establecerSalida();
-                }            
+                    establecerRegistroCasa(obtenerListaCasas().get(i));
+                    establecerSalidaCasa();
+                }
             }
         } // fin de try
         catch (IOException ioException) {
             System.err.println("Error al abrir el archivo.");
         } // fin de catch
     }
-    
+    public  EscrituraArchivoSecuencial(String nombreArc, String id1) {
+        nombreArchivo = nombreArc;
+        establecerListaDepartamentos();
+        try // abre el archivo
+        {
+            salida = new ObjectOutputStream(
+                    new FileOutputStream(nombreArchivo));
+            // proceso para ingresar nuevamente los valores del archivo
+            if (obtenerListaDepartamentos().size() > 0) {
+                for (int i = 0; i < obtenerListaDepartamentos().size(); i++) {
+                    establecerRegistroDepartamento(obtenerListaDepartamentos().get(i));
+                    establecerSalidaDepartamento();
+                }
+            }
+        } // fin de try
+        catch (IOException ioException) {
+            System.err.println("Error al abrir el archivo.");
+        } // fin de catch
+    }
+    public void EscrituraArchivoSecuencialPropietario(String nombreArc) {
+        nombreArchivo = nombreArc;
+        establecerListaPropietarios();
+        try // abre el archivo
+        {
+            salida = new ObjectOutputStream(
+                    new FileOutputStream(nombreArchivo));
+            // proceso para ingresar nuevamente los valores del archivo
+            if (obtenerListaPropietarios().size() > 0) {
+                for (int i = 0; i < obtenerListaPropietarios().size(); i++) {
+                    establecerRegistroPropietario(obtenerListaPropietarios().get(i));
+                    establecerSalidaPropietario();
+                }
+            }
+        } // fin de try
+        catch (IOException ioException) {
+            System.err.println("Error al abrir el archivo.");
+        } // fin de catch
+    }
+    public void EscrituraArchivoSecuencialBarrio(String nombreArc) {
+        nombreArchivo = nombreArc;
+        establecerListaBarrios();
+        try // abre el archivo
+        {
+            salida = new ObjectOutputStream(
+                    new FileOutputStream(nombreArchivo));
+            // proceso para ingresar nuevamente los valores del archivo
+            if (obtenerListaBarrios().size() > 0) {
+                for (int i = 0; i < obtenerListaBarrios().size(); i++) {
+                    establecerRegistroBarrio(obtenerListaBarrios().get(i));
+                    establecerSalidaBarrio();
+                }
+            }
+        } // fin de try
+        catch (IOException ioException) {
+            System.err.println("Error al abrir el archivo.");
+        } // fin de catch
+    }
+    public void EscrituraArchivoSecuencialCiudad(String nombreArc) {
+        nombreArchivo = nombreArc;
+        establecerListaCiudades();
+        try // abre el archivo
+        {
+            salida = new ObjectOutputStream(
+                    new FileOutputStream(nombreArchivo));
+            // proceso para ingresar nuevamente los valores del archivo
+            if (obtenerListaCiudad().size() > 0) {
+                for (int i = 0; i < obtenerListaCiudad().size(); i++) {
+                    establecerRegistroCiudad(obtenerListaCiudad().get(i));
+                    establecerSalidaCiudad();
+                }
+            }
+        } // fin de try
+        catch (IOException ioException) {
+            System.err.println("Error al abrir el archivo.");
+        } // fin de catch
+    }
+    public void EscrituraArchivoSecuencialConstructora(String nombreArc) {
+        nombreArchivo = nombreArc;
+        establecerListaConstructora();
+        try // abre el archivo
+        {
+            salida = new ObjectOutputStream(
+                    new FileOutputStream(nombreArchivo));
+            // proceso para ingresar nuevamente los valores del archivo
+            if (obtenerListaConstructora().size() > 0) {
+                for (int i = 0; i < obtenerListaConstructora().size(); i++) {
+                    establecerRegistroConstructora(obtenerListaConstructora().get(i));
+                    establecerSalidaConstructora();
+                }
+            }
+        } // fin de try
+        catch (IOException ioException) {
+            System.err.println("Error al abrir el archivo.");
+        } // fin de catch
+    }
     public void establecerNombreArchivo(String n){
         nombreArchivo = n;
     }
     // agrega registros al archivo
-    public void establecerRegistro(Departamento p) {
-        registro = p;
+    public void establecerRegistroDepartamento(Departamento p) {
+        registroDepartamento = p;
     }
-
-    public void establecerSalida() {
+    public void establecerRegistroCasa(Casa c) {
+        registroCasa = c;
+    }
+    public void establecerRegistroPropietario(Propietario p) {
+        registroPropietario = p;
+    }
+    public void establecerRegistroBarrio(Barrio b) {
+        registroBarrio = b;
+    }
+    public void establecerRegistroCiudad(Ciudad c) {
+        registroCiudad = c;
+    }
+    public void establecerRegistroConstructora(Constructora c) {
+        registroConstructora = c;
+    }
+    public void establecerSalidaDepartamento() {
         try {
-            salida.writeObject(registro); // envía el registro como salida
+            salida.writeObject(registroDepartamento); // envía el registro como salida
+        } catch (IOException ex) {
+            System.err.println("Error al escribir en el archivo.");
+        }
+    }
+    public void establecerSalidaCasa() {
+        try {
+            salida.writeObject(registroCasa); // envía el registro como salida
+        } catch (IOException ex) {
+            System.err.println("Error al escribir en el archivo.");
+        }
+    }
+    public void establecerSalidaPropietario() {
+        try {
+            salida.writeObject(registroPropietario); // envía el registro como salida
+        } catch (IOException ex) {
+            System.err.println("Error al escribir en el archivo.");
+        }
+    }
+    public void establecerSalidaBarrio() {
+        try {
+            salida.writeObject(registroBarrio); // envía el registro como salida
+        } catch (IOException ex) {
+            System.err.println("Error al escribir en el archivo.");
+        }
+    }
+    public void establecerSalidaCiudad() {
+        try {
+            salida.writeObject(registroCiudad); // envía el registro como salida
+        } catch (IOException ex) {
+            System.err.println("Error al escribir en el archivo.");
+        }
+    }
+    public void establecerSalidaConstructora() {
+        try {
+            salida.writeObject(registroConstructora); // envía el registro como salida
         } catch (IOException ex) {
             System.err.println("Error al escribir en el archivo.");
         }

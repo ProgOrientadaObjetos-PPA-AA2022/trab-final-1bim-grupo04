@@ -12,7 +12,7 @@ import paquete05.Constructora;
 public class Departamento {
     private Propietario propietario;
     private double precioMetroCuadrados;
-    private int numeroMetrosCuadrados;
+    private double numeroMetrosCuadrados;
     private double alicuotaMensual;
     private double valorFinal;
     private Barrio barrio;
@@ -20,7 +20,9 @@ public class Departamento {
     private String nombreEdificio;
     private String ubicacionEdificio;
     private Constructora constructora;
-    
+    public Departamento(Propietario p, double preMeCuadrado,double numMeCuadrado,double aliMen, Barrio b,Ciudad c,String nomEdificio,String ubiEdificio,Constructora con){
+        
+    }
     public void establecerPropietario(Propietario n){
         propietario = n;
     }
@@ -29,7 +31,7 @@ public class Departamento {
         precioMetroCuadrados = c;
     }
     
-    public void establecerNumeroMetrosCuadrados(int c){
+    public void establecerNumeroMetrosCuadrados(double c){
         numeroMetrosCuadrados = c;
     }
     
@@ -70,7 +72,7 @@ public class Departamento {
         return precioMetroCuadrados;
     }
     
-    public int obtenerNumeroMetrosCuadrados(){
+    public double obtenerNumeroMetrosCuadrados(){
         return numeroMetrosCuadrados;
     }
     
@@ -109,7 +111,7 @@ public class Departamento {
                 + "Nombres: %s Apellidos: %s Identificacion: %s\n"
                 + "ESPECIFICACIONES\n"
                 + "Nombre Edificio: %s Ubicación Edificio: %s\n"
-                + "Precio por metro cuadrado: %.2f Numero de metros cuadrados: %d\n"
+                + "Precio por metro cuadrado: %.2f Numero de metros cuadrados: %.2f\n"
                 + "Valor Alícuota Mensual: %.2f Costo final: %.2f\n"
                 + "BARRIO\n"
                 + "Nombre Barrio: %s Referencia%s\n"

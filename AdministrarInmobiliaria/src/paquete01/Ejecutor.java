@@ -10,21 +10,64 @@ import paquete02.Propietario;
 import paquete03.Barrio;
 import paquete04.Ciudad;
 import paquete05.Constructora;
+import paquete06.Casa;
+import paquete06.Departamento;
 
 /**
  *
  * @author reroes
  */
 public class Ejecutor {
-    Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        int op = 0;
+        Scanner sc = new Scanner(System.in);
+        String nombreArchivo,nombreEdificio,ubicacionEdificio;
+        Casa casa;
+        Departamento departamento;
+        Propietario p;
+        Barrio b;
+        Ciudad c;
+        Constructora con;
+        double precioMetroCuadrado, numeroMetrosCuadrados, valorAlicuota;
+        int op, numeroCuartos;
         do {
             op = menu();
             switch(op){
-                case 1:
+                case 1:p = buscarPro();
+                       b = buscarBarr();
+                       c = buscarCiu();
+                       con = buscarCons();
+                       System.out.println("Ingrese el precio por metro cuadrado: ");
+                       precioMetroCuadrado = sc.nextDouble();
+                       System.out.println("Ingrese el numero de metros cuadrados: ");
+                       numeroMetrosCuadrados = sc.nextDouble();
+                       System.out.println("Ingrese el numero de cuartos: ");
+                       numeroCuartos = sc.nextInt();
+                       casa = new Casa(precioMetroCuadrado,numeroMetrosCuadrados,numeroCuartos,p,b,c,con);
+                       casa.establecerCostoFinal();
+                       EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial("data/casas.data");
+                       archivo.establecerRegistroCasa(casa);
+                       archivo.establecerSalidaCasa();
                     break;
-                case 2:
+                case 2:p = buscarPro();
+                       b = buscarBarr();
+                       c = buscarCiu();
+                       con = buscarCons();
+                       System.out.println("Ingrese el precio por metro cuadrado: ");
+                       precioMetroCuadrado = sc.nextDouble();
+                       System.out.println("Ingrese el numero de metros cuadrados: ");
+                       numeroMetrosCuadrados = sc.nextDouble();
+                       System.out.println("Ingrese valor alicuota mensual: ");
+                       valorAlicuota = sc.nextDouble();
+                       sc.nextLine();
+                       System.out.println("Ingrese el nombre del edificio: ");
+                       nombreEdificio = sc.nextLine();
+                       System.out.println("Ingrese la ubicacion del edificio: ");
+                       ubicacionEdificio = sc.nextLine();
+                       departamento = new Departamento(p,precioMetroCuadrado,numeroMetrosCuadrados,valorAlicuota,b,c,nombreEdificio,ubicacionEdificio,con);
+                       departamento.establecerValorFinal();
+                       EscrituraArchivoSecuencial archivo2 = new EscrituraArchivoSecuencial("data/departamentos.data","Edificio");
+                       archivo2.establecerRegistroDepartamento(departamento);
+                       archivo2.establecerSalidaDepartamento();
                     break;
                 case 3:
                     break;
@@ -43,7 +86,7 @@ public class Ejecutor {
     }
     public static int menu(){
         Scanner sc = new Scanner(System.in);
-        int op = 0;
+        int op;
         System.out.println("Ingresar nueva Casa              [1]: ");
         System.out.println("Ingresar nuevo Departamento      [2]: ");
         System.out.println("Ingresar nuevo Propietario       [3]: ");
@@ -57,7 +100,7 @@ public class Ejecutor {
     }
     public static int menu2(){
         Scanner sc = new Scanner(System.in);
-        int op = 0;
+        int op;
         System.out.println("Obervar Lista casas              [1]: ");
         System.out.println("Obervar Lista departamentos      [2]: ");
         System.out.println("Obervar Lista propietarios       [3]: ");
@@ -71,8 +114,8 @@ public class Ejecutor {
     public static Propietario buscarPro(){
         Scanner sc = new Scanner(System.in);
         String identificacion;
-        String nombres="";
-        String apellidos="";
+        String nombres;
+        String apellidos;
         String nombreArchivo = "data/propietarios.data";
         System.out.println("Ingrese identifiacion del propietario: ");
         identificacion = sc.nextLine();
@@ -98,8 +141,8 @@ public class Ejecutor {
     }
     public static Barrio buscarBarr(){
         Scanner sc = new Scanner(System.in);
-        String nombreBarrio = "";
-        String referencia = "";
+        String nombreBarrio;
+        String referencia;
         String nombreArchivo = "data/barrios.data";
         System.out.println("Ingrese nombre del barrio: ");
         nombreBarrio = sc.nextLine();

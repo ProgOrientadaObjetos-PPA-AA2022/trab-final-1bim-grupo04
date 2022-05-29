@@ -24,10 +24,14 @@ public class Casa {
     private int numeroCuartos;
     private Constructora constructora;
     
-    public Casa(double preMeCuadrado, double numMeCuadrado,int numCuartos){
+    public Casa(double preMeCuadrado, double numMeCuadrado,int numCuartos,Propietario p,Barrio b,Ciudad c,Constructora cons){
         precioMetroCuadrado = preMeCuadrado;
         numeroMetrosCuadrados = numMeCuadrado;
         numeroCuartos = numCuartos;
+        propietario = p;
+        barrio = b;
+        ciudad = c;
+        constructora = cons;
     }
     
     public void establecerPropietario(Propietario pro){

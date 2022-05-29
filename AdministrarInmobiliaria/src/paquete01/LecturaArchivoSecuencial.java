@@ -434,8 +434,7 @@ public class LecturaArchivoSecuencial {
     public String imprimirListaBarrios(){
         String cadena = "Barrios:\n";
         for (int i = 0; i < barrios.size(); i++) {
-            cadena = String.format("%s(%d) Nombre barrio: %s Referencia: %s\n",cadena,i+1,
-                    barrios.get(i).obtenerNombreBarrio(),barrios.get(i).obtenerReferencia());
+            cadena = String.format("%s(%d) Nombre barrio: %s Referencia: %s\n",cadena,i+1,barrios.get(i).obtenerNombreBarrio(),barrios.get(i).obtenerReferencia());
         }
         return cadena;
     }
