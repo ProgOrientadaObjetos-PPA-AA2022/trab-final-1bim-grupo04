@@ -5,7 +5,9 @@
  */
 package paquete04;
 
-public class Ciudad {
+import java.io.Serializable;
+
+public class Ciudad implements Serializable{
     private String nombreCiudad;
     private String nombreProvincia;
     

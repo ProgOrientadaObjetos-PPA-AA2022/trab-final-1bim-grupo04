@@ -424,7 +424,7 @@ public class LecturaArchivoSecuencial {
         return cadena;
     }
     public String imprimirListaPropietarios(){
-        String cadena = "Propiedades:\n";
+        String cadena = "Propietarios:\n";
         for (int i = 0; i < propietarios.size(); i++) {
             cadena = String.format("%s(%d) Nombres: %s Apellidos: %s Identificacion: %s\n",cadena,i+1,
                     propietarios.get(i).obtenerNombres(),propietarios.get(i).obtenerApellidos(),propietarios.get(i).obtenerIdentificacion());
