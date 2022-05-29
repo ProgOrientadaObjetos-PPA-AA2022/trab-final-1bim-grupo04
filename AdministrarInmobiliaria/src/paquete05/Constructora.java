@@ -36,9 +36,7 @@ public class Constructora {
     
     @Override
     public String toString() {
-        String constructora = String.format("Constructora\n"
-                + "Nombre Constructora: %s "
-                + "Id Empresa: %s\n",
+        String constructora = String.format("Nombre Constructora: %s Id Empresa: %s\n",
                 nombreConstructora, idEmpresa);
         return constructora;
     }   

@@ -105,18 +105,17 @@ public class Departamento {
     @Override
     public String toString() {
         String cadena = String.format("Informacion del Departamento\n"
-                + "Propietario\n"
-                + "Nombres: %s Apellidos: %s\n"
-                + "Identificacion: %s\n"
+                + "PROPIETARIO\n"
+                + "Nombres: %s Apellidos: %s Identificacion: %s\n"
+                + "ESPECIFICACIONES\n"
                 + "Nombre Edificio: %s Ubicación Edificio: %s\n"
-                + "Precio por metro cuadrado: %.2f"
-                + "Numero de metros cuadrados: %d\n"
+                + "Precio por metro cuadrado: %.2f Numero de metros cuadrados: %d\n"
                 + "Valor Alícuota Mensual: %.2f Costo final: %.2f\n"
-                + "Barrio\n"
+                + "BARRIO\n"
                 + "Nombre Barrio: %s Referencia%s\n"
-                + "Ciudad\n"
+                + "CIUDAD\n"
                 + "Nombre Ciudad: %s Nombre Provincia: %s\n"
-                + "Constructora\n"
+                + "CONSTRUCTORA\n"
                 + "Nombre Constructora: %s ID Empresa: %s",
                 propietario.obtenerNombres(), propietario.obtenerApellidos(),
                 propietario.obtenerIdentificacion(),nombreEdificio,

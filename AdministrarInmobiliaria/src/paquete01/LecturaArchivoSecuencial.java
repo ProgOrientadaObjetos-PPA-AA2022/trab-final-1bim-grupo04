@@ -105,7 +105,7 @@ public class LecturaArchivoSecuencial {
     }
     public void establecerListaPropietarios() {
         // 
-        departamentos = new ArrayList<>();
+        propietarios = new ArrayList<>();
         File f = new File(obtenerNombreArchivo());
         if (f.exists()) {
 
@@ -376,4 +376,84 @@ public class LecturaArchivoSecuencial {
     public Constructora obtenerConstructoraBuscado() {
         return constructoraBuscado;
     } 
+    public String imprimirListaCasas(){
+        String cadena = "Casas:\n";
+        for (int i = 0; i < casas.size(); i++) {
+            cadena = String.format("%s(%d) Informacion casa:\n"
+                + "PROPIETARIO\n"
+                + "Nombres: %s Apellidos: %s Identificacion: %s\n"
+                + "Precio metro cuadrado: %.2f Numero metros Cuadrados: %.2f Numero Cuartos: %d Costo final: %.2f\n"
+                + "BARRIO\n"
+                + "Nombre barrio: %s Referencia: %s\n"
+                + "CIUDAD\n"
+                + "Nombre Ciudad: %s Nombre Provincia: %s \n"
+                + "CONSTRUCTORA\n"
+                + "Nombre Constructora: %s Id Empresa: %s\n",cadena,i+1,
+                casas.get(i).obtenerPropietario().obtenerApellidos(),casas.get(i).obtenerPropietario().obtenerApellidos(),casas.get(i).obtenerPropietario().obtenerIdentificacion(),
+                casas.get(i).obtenerPrecioMetroCuadrado(),casas.get(i).obtenerNumeroMetrosCuadrados(),casas.get(i).obtenerCostoFinal(),
+                casas.get(i).obtenerBarrio().obtenerNombreBarrio(),casas.get(i).obtenerBarrio().obtenerReferencia(),
+                casas.get(i).obtenerCiudad().obtenerNombreCuidad(),casas.get(i).obtenerCiudad().obtenerNombreProvincia(),
+                casas.get(i).obtenerConstructora().obtenerNombreConstructora(),casas.get(i).obtenerConstructora().obtenerIdEmpresa());
+        }
+        return cadena;
+    }
+    public String imprimirListaDepartamentos(){
+        String cadena = "Departamentos:\n";
+        for (int i = 0; i < departamentos.size(); i++) {
+            cadena = String.format("%s(%d) Informacion del Departamento\n"
+                + "PROPIETARIO\n"
+                + "Nombres: %s Apellidos: %s Identificacion: %s\n"
+                + "ESPECIFICACIONES\n"
+                + "Nombre Edificio: %s Ubicación Edificio: %s\n"
+                + "Precio por metro cuadrado: %.2f Numero de metros cuadrados: %d\n"
+                + "Valor Alícuota Mensual: %.2f Costo final: %.2f\n"
+                + "BARRIO\n"
+                + "Nombre Barrio: %s Referencia%s\n"
+                + "CIUDAD\n"
+                + "Nombre Ciudad: %s Nombre Provincia: %s\n"
+                + "CONSTRUCTORA\n"
+                + "Nombre Constructora: %s ID Empresa: %s",cadena,i+1,
+                departamentos.get(i).obtenerPropietario().obtenerNombres(),departamentos.get(i).obtenerPropietario().obtenerApellidos(),departamentos.get(i).obtenerPropietario().obtenerIdentificacion(),
+                departamentos.get(i).obtenerNombreEdificio(),departamentos.get(i).obtenerUbicacionEdificio(),
+                departamentos.get(i).obtenerPrecioMetroCuadrado(),departamentos.get(i).obtenerNumeroMetrosCuadrados(),
+                departamentos.get(i).obtenerAlicuotaMensual(),departamentos.get(i).obtenerValorFinal(),
+                departamentos.get(i).obtenerBarrio().obtenerNombreBarrio(),departamentos.get(i).obtenerBarrio().obtenerReferencia(),
+                departamentos.get(i).obtenerCiudad().obtenerNombreCuidad(),departamentos.get(i).obtenerCiudad().obtenerNombreProvincia(),
+                departamentos.get(i).obtenerConstructora().obtenerNombreConstructora(),departamentos.get(i).obtenerConstructora().obtenerIdEmpresa());
+        }
+        return cadena;
+    }
+    public String imprimirListaPropietarios(){
+        String cadena = "Propiedades:\n";
+        for (int i = 0; i < propietarios.size(); i++) {
+            cadena = String.format("%s(%d) Nombres: %s Apellidos: %s Identificacion: %s\n",cadena,i+1,
+                    propietarios.get(i).obtenerNombres(),propietarios.get(i).obtenerApellidos(),propietarios.get(i).obtenerIdentificacion());
+        }
+        return cadena;
+    }
+    public String imprimirListaBarrios(){
+        String cadena = "Barrios:\n";
+        for (int i = 0; i < barrios.size(); i++) {
+            cadena = String.format("%s(%d) Nombre barrio: %s Referencia: %s\n",cadena,i+1,
+                    barrios.get(i).obtenerNombreBarrio(),barrios.get(i).obtenerReferencia());
+        }
+        return cadena;
+    }
+    public String imprimirListaCiudades(){
+        String cadena = "Ciudades:\n";
+        for (int i = 0; i < ciudades.size(); i++) {
+            cadena = String.format("%s(%d) Nombre Ciudad: %s Nombre Provincia: %s\n",cadena,i+1,
+                ciudades.get(i).obtenerNombreCuidad(), ciudades.get(i).obtenerNombreProvincia());
+        }
+        return cadena;
+    }
+    public String imprimirListaConstructoras(){
+        String cadena = "Constructoras:\n";
+        for (int i = 0; i < constructoras.size(); i++) {
+            cadena = String.format("%s(%d) Nombre Constructora: %s Id Empresa: %s\n",cadena,i+1,
+                constructoras.get(i).obtenerNombreConstructora(),constructoras.get(i).obtenerIdEmpresa());
+        }
+        return cadena;
+    }
+    
 }

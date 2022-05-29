@@ -32,9 +32,7 @@ public class Ciudad {
     
      @Override
     public String toString() {
-        String ciudad = String.format("Cuidad\n"
-                + "Nombre Ciudad: %s "
-                + "Nombre Provincia: %s\n",
+        String ciudad = String.format("Nombre Ciudad: %s Nombre Provincia: %s\n",
                 nombreCiudad, nombreProvincia);
         return ciudad;
     }   
