@@ -66,7 +66,7 @@ public final class EscrituraArchivoSecuencial {
             System.err.println("Error al abrir el archivo.");
         } // fin de catch
     }
-    public void EscrituraArchivoSecuencialPropietario(String nombreArc) {
+    public EscrituraArchivoSecuencial(String nombreArc, int id1) {
         nombreArchivo = nombreArc;
         establecerListaPropietarios();
         try // abre el archivo
@@ -85,7 +85,7 @@ public final class EscrituraArchivoSecuencial {
             System.err.println("Error al abrir el archivo.");
         } // fin de catch
     }
-    public void EscrituraArchivoSecuencialBarrio(String nombreArc) {
+    public EscrituraArchivoSecuencial(String nombreArc, String id1, int id01) {
         nombreArchivo = nombreArc;
         establecerListaBarrios();
         try // abre el archivo
@@ -104,7 +104,7 @@ public final class EscrituraArchivoSecuencial {
             System.err.println("Error al abrir el archivo.");
         } // fin de catch
     }
-    public void EscrituraArchivoSecuencialCiudad(String nombreArc) {
+    public EscrituraArchivoSecuencial(String nombreArc,int id02,String id2) {
         nombreArchivo = nombreArc;
         establecerListaCiudades();
         try // abre el archivo
@@ -123,7 +123,7 @@ public final class EscrituraArchivoSecuencial {
             System.err.println("Error al abrir el archivo.");
         } // fin de catch
     }
-    public void EscrituraArchivoSecuencialConstructora(String nombreArc) {
+    public EscrituraArchivoSecuencial(String nombreArc,int id06,int id006) {
         nombreArchivo = nombreArc;
         establecerListaConstructora();
         try // abre el archivo
