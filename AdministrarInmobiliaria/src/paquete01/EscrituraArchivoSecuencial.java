@@ -66,6 +66,8 @@ public final class EscrituraArchivoSecuencial {
             System.err.println("Error al abrir el archivo.");
         } // fin de catch
     }
+    
+    
     public EscrituraArchivoSecuencial(String nombreArc, int id1) {
         nombreArchivo = nombreArc;
         establecerListaPropietarios();

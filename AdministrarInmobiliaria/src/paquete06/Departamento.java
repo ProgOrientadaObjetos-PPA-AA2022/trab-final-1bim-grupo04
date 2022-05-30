@@ -24,6 +24,10 @@ public class Departamento implements Serializable{
     public Departamento(Propietario p, double preMeCuadrado,double numMeCuadrado,double aliMen, Barrio b,Ciudad c,String nomEdificio,String ubiEdificio,Constructora con){
         
     }
+    
+    public Departamento(){
+        
+    }
     public void establecerPropietario(Propietario n){
         propietario = n;
     }

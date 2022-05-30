@@ -20,15 +20,13 @@ public class EscrituraArchivoSecuencialBarrio {
     
     public  EscrituraArchivoSecuencialBarrio(String nombreArc) {
         nombreArchivo = nombreArc;
-        System.out.println(nombreArchivo);
         establecerListaBarrios();
         try // abre el archivo
         {
             salida = new ObjectOutputStream(
                     new FileOutputStream(nombreArchivo));
             // proceso para ingresar nuevamente los valores del archivo
-            System.out.println(listaBarrios.size());
-            if (listaBarrios.size() > 0) {
+            if (obtenerListaBarrios().size() > 0) {
                 for (int i = 0; i < obtenerListaBarrios().size(); i++) {
                     establecerRegistroBarrio(obtenerListaBarrios().get(i));
                     establecerSalidaBarrio();

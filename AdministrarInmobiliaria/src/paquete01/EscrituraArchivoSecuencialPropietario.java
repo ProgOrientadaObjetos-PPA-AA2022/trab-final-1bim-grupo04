@@ -26,7 +26,6 @@ public class EscrituraArchivoSecuencialPropietario {
             salida = new ObjectOutputStream(
                     new FileOutputStream(nombreArchivo));
             // proceso para ingresar nuevamente los valores del archivo
-            System.out.println(obtenerListaPropietarios().size());
             if (obtenerListaPropietarios().size() > 0) {
                 for (int i = 0; i < obtenerListaPropietarios().size(); i++) {
                     establecerRegistroPropietario(obtenerListaPropietarios().get(i));
