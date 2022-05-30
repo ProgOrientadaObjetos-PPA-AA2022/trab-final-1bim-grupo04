@@ -40,6 +40,8 @@ public class Propietario implements Serializable{
     public String obtenerIdentificacion(){
         return identificacion;
     }
+    
+    @Override
     public String toString(){
         String cadena = String.format("Nombres: %s Apellidos: %s Identificacion: %s\n",nombres,apellidos,identificacion);
         return cadena;
