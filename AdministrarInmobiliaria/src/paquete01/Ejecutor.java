@@ -22,15 +22,13 @@ public class Ejecutor {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String nombreEdificio, ubicacionEdificio;
-        Casa casa;
-        Departamento departamento;
         Propietario p;
         Barrio b;
         Ciudad c;
         Constructora con;
-        double precioMetroCuadrado, numeroMetrosCuadrados, valorAlicuota;
+        double precioMetroCuadrado, numeroMetrosCuadrados;
         int op, numeroCuartos;
-
+        System.out.println("ADMINISTRADOR INMOBILIARIA");
         do {
             op = menu();
             switch (op) {
@@ -46,9 +44,9 @@ public class Ejecutor {
                     numeroMetrosCuadrados = sc.nextDouble();
                     System.out.println("Ingrese el numero de cuartos: ");
                     numeroCuartos = sc.nextInt();
-                    casa = new Casa(precioMetroCuadrado, numeroMetrosCuadrados, numeroCuartos, p, b, c, con);
+                    Casa casa = new Casa(precioMetroCuadrado, numeroMetrosCuadrados, numeroCuartos, p, b, c, con);
                     casa.establecerCostoFinal();
-                    EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial("datos/casas.dat");
+                    EscrituraArchivoSecuencialCasa archivo = new EscrituraArchivoSecuencialCasa("datos/casas.dat");
                     archivo.establecerRegistroCasa(casa);
                     archivo.establecerSalidaCasa();
                     break;
@@ -57,25 +55,19 @@ public class Ejecutor {
                     b = buscarBarr();
                     c = buscarCiu();
                     con = buscarCons();
-                    departamento = new Departamento();
-                    departamento.establecerPropietario(p);
                     System.out.println("-------------------------------------");
                     System.out.println("Ingrese el precio por metro cuadrado: ");
-                    departamento.establecerPrecioMetroCuadrado(sc.nextDouble());
+                    precioMetroCuadrado = sc.nextDouble();
                     System.out.println("Ingrese el numero de metros cuadrados: ");
                     numeroMetrosCuadrados = sc.nextDouble();
-                    departamento.establecerNumeroMetrosCuadrados(sc.nextDouble());
                     System.out.println("Ingrese valor alicuota mensual: ");
-                    valorAlicuota = sc.nextDouble();
-                    departamento.establecerAlicuotaMensual(sc.nextDouble());
+                    Double valorAlicuota = sc.nextDouble();
                     sc.nextLine();
                     System.out.println("Ingrese el nombre del edificio: ");
                     nombreEdificio = sc.nextLine();
-                    departamento.establecerNombreEdificios(sc.nextLine());
-
                     System.out.println("Ingrese la ubicacion del edificio: ");
                     ubicacionEdificio = sc.nextLine();
-                    //departamento = new Departamento(p, precioMetroCuadrado, numeroMetrosCuadrados, valorAlicuota, b, c, nombreEdificio, ubicacionEdificio, con);
+                    Departamento departamento = new Departamento(p,precioMetroCuadrado,numeroMetrosCuadrados,valorAlicuota,b,c,nombreEdificio,ubicacionEdificio,con);
                     departamento.establecerValorFinal();
                     EscrituraArchivoSecuencialDepartamento archivo2 = new EscrituraArchivoSecuencialDepartamento("datos/departamentos.dat");
                     archivo2.establecerRegistroDepartamento(departamento);
@@ -114,7 +106,7 @@ public class Ejecutor {
                     System.out.println("Ingrese nombre de la provincia: ");
                     String provincia = sc.nextLine();
                     c = new Ciudad(nombreCiudad, provincia);
-                    EscrituraArchivoSecuencial archivo5 = new EscrituraArchivoSecuencial("datos/ciudades.dat", 2, "Ciudad");
+                    EscrituraArchivoSecuencialCiudad archivo5 = new EscrituraArchivoSecuencialCiudad("datos/ciudades.dat");
                     archivo5.establecerRegistroCiudad(c);
                     archivo5.establecerSalidaCiudad();
                     break;
@@ -125,15 +117,19 @@ public class Ejecutor {
                     System.out.println("Ingrese id de la constructora:");
                     String idConstructora = sc.nextLine();
                     con = new Constructora(nombreConstructora, idConstructora);
-                    System.out.println("1");
-                    EscrituraArchivoSecuencial archivo6 = new EscrituraArchivoSecuencial("datos/constructoras.dat", 6, 6);
-                    System.out.println("1");
+                    EscrituraArchivoSecuencialConstructora archivo6 = new EscrituraArchivoSecuencialConstructora("datos/constructoras.dat");
                     archivo6.establecerRegistroConstructora(con);
                     archivo6.establecerSalidaConstructora();
                     break;
                 case 7:
-                    mostrarListas(menu2());
+                    do {                        
+                        op = menu2();
+                        mostrarListas(op);
+                    } while (op!=0);
+                    op = 7;
                     break;
+                case 0:
+                    System.out.println("¡GRACIAS POR USAR NUESTRO PROGRAMA! :)");
             }
         } while (op != 0);
     }
@@ -141,6 +137,7 @@ public class Ejecutor {
     public static int menu() {
         Scanner sc = new Scanner(System.in);
         int op;
+        System.out.println("--------------------------------------");
         System.out.println("Ingresar nueva Casa              [1]: ");
         System.out.println("Ingresar nuevo Departamento      [2]: ");
         System.out.println("Ingresar nuevo Propietario       [3]: ");
@@ -149,6 +146,7 @@ public class Ejecutor {
         System.out.println("Ingresar nueva Constructora      [6]: ");
         System.out.println("Observar Listas                  [7]: ");
         System.out.println("Salir del Programa               [0]: ");
+        System.out.println("--------------------------------------");
         op = sc.nextInt();
         return op;
     }
@@ -156,6 +154,7 @@ public class Ejecutor {
     public static int menu2() {
         Scanner sc = new Scanner(System.in);
         int op;
+        System.out.println("---------------------------------------");
         System.out.println("Obervar Lista casas              [1]: ");
         System.out.println("Obervar Lista departamentos      [2]: ");
         System.out.println("Obervar Lista propietarios       [3]: ");
@@ -163,6 +162,7 @@ public class Ejecutor {
         System.out.println("Obervar Lista ciudades           [5]: ");
         System.out.println("Obervar Lista constructoras      [6]: ");
         System.out.println("Regresar menu anterior:          [0]: ");
+        System.out.println("---------------------------------------");
         op = sc.nextInt();
         return op;
     }
@@ -192,7 +192,7 @@ public class Ejecutor {
             System.out.println("Ingrese identificacion del propietario: ");
             identificacion = sc.nextLine();
             Propietario p = new Propietario(nombres, apellidos, identificacion);
-            EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial(nombreArchivo, 1);
+            EscrituraArchivoSecuencialPropietario archivo = new EscrituraArchivoSecuencialPropietario(nombreArchivo);
             archivo.establecerRegistroPropietario(p);
             archivo.establecerSalidaPropietario();
             return p;
@@ -221,7 +221,7 @@ public class Ejecutor {
             System.out.println("Ingrese referencia: ");
             referencia = sc.nextLine();
             Barrio b = new Barrio(nombreBarrio, referencia);
-            EscrituraArchivoSecuencial archivo2 = new EscrituraArchivoSecuencial(nombreArchivo, "barrio", 4);
+            EscrituraArchivoSecuencialBarrio archivo2 = new EscrituraArchivoSecuencialBarrio(nombreArchivo);
             archivo2.establecerRegistroBarrio(b);
             archivo2.establecerSalidaBarrio();
             return b;
@@ -250,7 +250,7 @@ public class Ejecutor {
             System.out.println("Ingrese nombre de la provincia: ");
             nombreProvincia = sc.nextLine();
             Ciudad c = new Ciudad(nombreCiudad, nombreProvincia);
-            EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial(nombreArchivo, 2, "Ciudad");
+            EscrituraArchivoSecuencialCiudad archivo = new EscrituraArchivoSecuencialCiudad(nombreArchivo);
             archivo.establecerRegistroCiudad(c);
             archivo.establecerSalidaCiudad();
             return c;
@@ -279,15 +279,15 @@ public class Ejecutor {
             System.out.println("Ingrese id constructora: ");
             idConstructora = sc.nextLine();
             Constructora cons = new Constructora(nombreConstructora, idConstructora);
-            EscrituraArchivoSecuencial archivo = new EscrituraArchivoSecuencial(nombreArchivo, 6, 6);
+            EscrituraArchivoSecuencialConstructora archivo = new EscrituraArchivoSecuencialConstructora(nombreArchivo);
             archivo.establecerRegistroConstructora(cons);
             archivo.establecerSalidaConstructora();
             return cons;
         }
     }
 
-    public static void mostrarListas(int op) {
-        switch (op) {
+    public static void mostrarListas(int op2) {
+        switch (op2) {
             case 1:
                 LecturaArchivoSecuencial lectura = new LecturaArchivoSecuencial("datos/casas.dat");
                 lectura.establecerListaCasas();

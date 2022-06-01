@@ -1,30 +1,35 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package paquete01;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import paquete06.Casa;
-
-public final class EscrituraArchivoSecuencialCasa {
+import paquete05.Constructora;
+/**
+ *
+ * @author mateovalarezoojeda
+ */
+public class EscrituraArchivoSecuencialConstructora {
     private String nombreArchivo;
     private ObjectOutputStream salida; // envía los datos a un archivo
-    private Casa registroCasa;
-    private ArrayList<Casa> listaCasas;
+    private Constructora registroConstructora;
+    private ArrayList<Constructora> listaConstructoras;
     
-    public  EscrituraArchivoSecuencialCasa(String nombreArc) {
+    public  EscrituraArchivoSecuencialConstructora(String nombreArc) {
         nombreArchivo = nombreArc;
-        establecerListaCasas();
+        establecerListaConstructoras();
         try // abre el archivo
         {
             salida = new ObjectOutputStream(
                     new FileOutputStream(nombreArchivo));
             // proceso para ingresar nuevamente los valores del archivo
-            if (obtenerListaCasas().size() > 0) {
-                for (int i = 0; i < obtenerListaCasas().size(); i++) {
-                    establecerRegistroCasa(obtenerListaCasas().get(i));
-                    establecerSalidaCasa();
+            if (obtenerListaConstructoras().size() > 0) {
+                for (int i = 0; i < obtenerListaConstructoras().size(); i++) {
+                    establecerRegistroConstructora(obtenerListaConstructoras().get(i));
+                    establecerSalidaConstructora();
                 }
             }
         } // fin de try
@@ -32,41 +37,35 @@ public final class EscrituraArchivoSecuencialCasa {
             System.err.println("Error al abrir el archivo.");
         } // fin de catch
     }
-    
     public void establecerNombreArchivo(String n){
         nombreArchivo = n;
     }
-    
-    public void establecerRegistroCasa(Casa c) {
-        registroCasa = c;
+    // agrega registros al archivo
+    public void establecerRegistroConstructora(Constructora c) {
+        registroConstructora = c;
     }
-    
-    public void establecerSalidaCasa() {
+    public void establecerSalidaConstructora() {
         try {
-            salida.writeObject(registroCasa); // envía el registro como salida
+            salida.writeObject(registroConstructora); // envía el registro como salida
         } catch (IOException ex) {
             System.err.println("Error al escribir en el archivo.");
         }
     }
-    
-    public void establecerListaCasas() {
+    public void establecerListaConstructoras() {
         LecturaArchivoSecuencial l = new LecturaArchivoSecuencial(obtenerNombreArchivo());
-        l.establecerListaCasas();
-        listaCasas = l.obtenerListaCasas();
+        l.establecerListaConstructoras();
+        listaConstructoras = l.obtenerListaConstructoras();
     }
-    
     public String obtenerNombreArchivo(){
         return nombreArchivo;
     }
-    
-    public ArrayList<Casa> obtenerListaCasas() {
-        return listaCasas;
+    public ArrayList<Constructora> obtenerListaConstructoras() {
+        return listaConstructoras;
     }
     
-    public ObjectOutputStream obtenerSalida(){
+    public ObjectOutputStream obtenerSalidaConstructora(){
         return salida;
     }
-    
     public void cerrarArchivo() {
         try // cierra el archivo
         {

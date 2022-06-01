@@ -146,7 +146,6 @@ public class LecturaArchivoSecuencial {
             while (true) {
                 try {
                     Barrio registro = (Barrio) entrada.readObject();
-                    System.out.println("secuencial " + registro.toString());
                     barrios.add(registro);
                 } catch (EOFException endOfFileException) {
                     return; // se llegó al fin del archivo
@@ -250,7 +249,6 @@ public class LecturaArchivoSecuencial {
             if (entrada != null) {
                 entrada.close();
             }
-            System.exit(0);
         } // fin de try
         catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
@@ -408,14 +406,15 @@ public class LecturaArchivoSecuencial {
             Casa c = casas.get(i);
             cadena = String.format("%s(%d) Informacion casa:\n"
                     + "PROPIETARIO\n"
-                    + "Nombres: %s Apellidos: %s Identificacion: %s\n"
-                    + "Precio metro cuadrado: %.2f Numero metros Cuadrados: %.2f Numero Cuartos: %d Costo final: %.2f\n"
+                    + "\tNombres: %s Apellidos: %s Identificacion: %s\n"
+                    + "ESPECIFICACIONES\n"
+                    + "\tPrecio metro cuadrado: %.2f Numero metros Cuadrados: %.2f Numero Cuartos: %d Costo final: %.2f\n"
                     + "BARRIO\n"
-                    + "Nombre barrio: %s Referencia: %s\n"
+                    + "\tNombre barrio: %s Referencia: %s\n"
                     + "CIUDAD\n"
-                    + "Nombre Ciudad: %s Nombre Provincia: %s \n"
+                    + "\tNombre Ciudad: %s Nombre Provincia: %s \n"
                     + "CONSTRUCTORA\n"
-                    + "Nombre Constructora: %s Id Empresa: %s\n", cadena,(i + 1),
+                    + "\tNombre Constructora: %s Id Empresa: %s\n", cadena,(i + 1),
                     c.obtenerPropietario().obtenerNombres(),c.obtenerPropietario().obtenerApellidos(), c.obtenerPropietario().obtenerIdentificacion(),
                     c.obtenerPrecioMetroCuadrado(), c.obtenerNumeroMetrosCuadrados(),c.obtenerNumeroCuartos(),c.obtenerCostoFinal(),
                     c.obtenerBarrio().obtenerNombreBarrio(), c.obtenerBarrio().obtenerReferencia(),
@@ -430,17 +429,17 @@ public class LecturaArchivoSecuencial {
         for (int i = 0; i < departamentos.size(); i++) {
             cadena = String.format("%s(%d) Informacion del Departamento\n"
                     + "PROPIETARIO\n"
-                    + "Nombres: %s Apellidos: %s Identificacion: %s\n"
+                    + "\tNombres: %s Apellidos: %s Identificacion: %s\n"
                     + "ESPECIFICACIONES\n"
-                    + "Nombre Edificio: %s Ubicación Edificio: %s\n"
-                    + "Precio por metro cuadrado: %.2f Numero de metros cuadrados: %d\n"
-                    + "Valor Alícuota Mensual: %.2f Costo final: %.2f\n"
+                    + "\tNombre Edificio: %s Ubicación Edificio: %s\n"
+                    + "\tPrecio por metro cuadrado: %.2f Numero de metros cuadrados: %.2f\n"
+                    + "\tValor Alícuota Mensual: %.2f Costo final: %.2f\n"
                     + "BARRIO\n"
-                    + "Nombre Barrio: %s Referencia%s\n"
+                    + "\tNombre Barrio: %s Referencia%s\n"
                     + "CIUDAD\n"
-                    + "Nombre Ciudad: %s Nombre Provincia: %s\n"
+                    + "\tNombre Ciudad: %s Nombre Provincia: %s\n"
                     + "CONSTRUCTORA\n"
-                    + "Nombre Constructora: %s ID Empresa: %s", cadena, i + 1,
+                    + "\tNombre Constructora: %s ID Empresa: %s\n", cadena, i + 1,
                     departamentos.get(i).obtenerPropietario().obtenerNombres(), departamentos.get(i).obtenerPropietario().obtenerApellidos(), departamentos.get(i).obtenerPropietario().obtenerIdentificacion(),
                     departamentos.get(i).obtenerNombreEdificio(), departamentos.get(i).obtenerUbicacionEdificio(),
                     departamentos.get(i).obtenerPrecioMetroCuadrado(), departamentos.get(i).obtenerNumeroMetrosCuadrados(),

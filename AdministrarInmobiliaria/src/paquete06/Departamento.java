@@ -22,11 +22,15 @@ public class Departamento implements Serializable{
     private String ubicacionEdificio;
     private Constructora constructora;
     public Departamento(Propietario p, double preMeCuadrado,double numMeCuadrado,double aliMen, Barrio b,Ciudad c,String nomEdificio,String ubiEdificio,Constructora con){
-        
-    }
-    
-    public Departamento(){
-        
+        propietario = p;
+        precioMetroCuadrados = preMeCuadrado;
+        numeroMetrosCuadrados = numMeCuadrado;
+        alicuotaMensual = aliMen;
+        barrio = b;
+        ciudad = c;
+        nombreEdificio = nomEdificio;
+        ubicacionEdificio = ubiEdificio;
+        constructora = con;
     }
     public void establecerPropietario(Propietario n){
         propietario = n;

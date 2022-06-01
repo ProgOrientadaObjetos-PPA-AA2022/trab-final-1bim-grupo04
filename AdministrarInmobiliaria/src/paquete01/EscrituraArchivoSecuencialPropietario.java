@@ -53,7 +53,7 @@ public class EscrituraArchivoSecuencialPropietario {
     }
     public void establecerListaPropietarios() {
         LecturaArchivoSecuencial l = new LecturaArchivoSecuencial(obtenerNombreArchivo());
-        l.establecerListaDepartamentos();
+        l.establecerListaPropietarios();
         listaPropietarios = l.obtenerListaPropietarios();
     }
     public String obtenerNombreArchivo(){
