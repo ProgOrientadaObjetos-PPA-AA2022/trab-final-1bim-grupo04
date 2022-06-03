@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/mateovalarezoojeda/Desktop/POO/trab-final-1bim-grupo04/AdministrarInmobiliaria/src/paquete01/EscrituraArchivoSecuencial.java</file>
-            <file>file:/Users/mateovalarezoojeda/Desktop/POO/trab-final-1bim-grupo04/AdministrarInmobiliaria/src/paquete01/EscrituraArchivoSecuencialDepartamento.java</file>
+            <file>file:/Users/mateovalarezoojeda/Desktop/POO/trab-final-1bim-grupo04/AdministrarInmobiliaria/src/paquete01/EscrituraArchivoSecuencialCasa.java</file>
             <file>file:/Users/mateovalarezoojeda/Desktop/POO/trab-final-1bim-grupo04/AdministrarInmobiliaria/src/paquete01/Ejecutor.java</file>
+            <file>file:/Users/mateovalarezoojeda/Desktop/POO/trab-final-1bim-grupo04/AdministrarInmobiliaria/src/paquete01/EscrituraArchivoSecuencialDepartamento.java</file>
+            <file>file:/Users/mateovalarezoojeda/Desktop/POO/trab-final-1bim-grupo04/AdministrarInmobiliaria/src/paquete06/Departamento.java</file>
+            <file>file:/Users/mateovalarezoojeda/Desktop/POO/trab-final-1bim-grupo04/AdministrarInmobiliaria/src/paquete01/LecturaArchivoSecuencial.java</file>
+            <file>file:/Users/mateovalarezoojeda/Desktop/POO/trab-final-1bim-grupo04/AdministrarInmobiliaria/src/paquete02/Propietario.java</file>
             <file>file:/Users/mateovalarezoojeda/Desktop/POO/trab-final-1bim-grupo04/AdministrarInmobiliaria/src/paquete01/EscrituraArchivoSecuencialBarrio.java</file>
-            <file>file:/Users/mateovalarezoojeda/Desktop/POO/trab-final-1bim-grupo04/AdministrarInmobiliaria/src/paquete01/EscrituraArchivoSecuencialPropietario.java</file>
+            <file>file:/Users/mateovalarezoojeda/Desktop/POO/trab-final-1bim-grupo04/AdministrarInmobiliaria/src/paquete01/EscrituraArchivoSecuencialCiudad.java</file>
         </group>
     </open-files>
 </project-private>

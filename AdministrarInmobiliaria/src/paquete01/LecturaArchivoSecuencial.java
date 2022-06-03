@@ -138,11 +138,9 @@ public class LecturaArchivoSecuencial {
 
     public void establecerListaBarrios() {
         // 
-        System.out.println("lsita de marrios");
         barrios = new ArrayList<>();
         File f = new File(obtenerNombreArchivo());
         if (f.exists()) {
-            System.out.println("el archivo existe");
             while (true) {
                 try {
                     Barrio registro = (Barrio) entrada.readObject();

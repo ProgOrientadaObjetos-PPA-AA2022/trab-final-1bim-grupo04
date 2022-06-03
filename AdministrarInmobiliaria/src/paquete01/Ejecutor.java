@@ -67,7 +67,7 @@ public class Ejecutor {
                     nombreEdificio = sc.nextLine();
                     System.out.println("Ingrese la ubicacion del edificio: ");
                     ubicacionEdificio = sc.nextLine();
-                    Departamento departamento = new Departamento(p,precioMetroCuadrado,numeroMetrosCuadrados,valorAlicuota,b,c,nombreEdificio,ubicacionEdificio,con);
+                    Departamento departamento = new Departamento(p, precioMetroCuadrado, numeroMetrosCuadrados, valorAlicuota, b, c, nombreEdificio, ubicacionEdificio, con);
                     departamento.establecerValorFinal();
                     EscrituraArchivoSecuencialDepartamento archivo2 = new EscrituraArchivoSecuencialDepartamento("datos/departamentos.dat");
                     archivo2.establecerRegistroDepartamento(departamento);
@@ -122,10 +122,10 @@ public class Ejecutor {
                     archivo6.establecerSalidaConstructora();
                     break;
                 case 7:
-                    do {                        
+                    do {
                         op = menu2();
                         mostrarListas(op);
-                    } while (op!=0);
+                    } while (op != 0);
                     op = 7;
                     break;
                 case 0:
