@@ -59,7 +59,7 @@ public class EscrituraArchivoSecuencialBarrio {
     public String obtenerNombreArchivo(){
         return nombreArchivo;
     }
-    public ArrayList<Barrio> obtenerListaBarrios() {
+        public ArrayList<Barrio> obtenerListaBarrios() {
         return listaBarrios;
     }
     
